@@ -21,8 +21,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 To run this project, install it locally using [npm](https://www.npmjs.com):
 
 ### Create your API key
-Register on [giphy.com](https://giphy.com/).
-Get your API key [on page](https://developers.giphy.com/dashboard/).
+Register on [giphy.com](https://giphy.com/) then get your API key on this [page](https://developers.giphy.com/dashboard/).
 Create ".env" file in main directory and create a variable called REACT_APP_API_KEY=YOUR_API_KEY
 
 ### Available Scripts
