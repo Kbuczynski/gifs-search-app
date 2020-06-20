@@ -1,0 +1,42 @@
+@mixin respond-to($breakpoint) {
+  // Small phone
+  @if $breakpoint == "very-small" {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+  // Phone
+  @if $breakpoint == "small" {
+      @media (max-width: 800px) {
+          @content;
+      }
+  }
+  // Tablet
+  @else if $breakpoint == "medium" {
+      @media (max-width: 1300px) {
+          @content;
+      }
+  }
+  // Only desktop
+  @else if $breakpoint == "large" {
+      @media (min-width: 1300px) {
+          @content;
+      }
+  }
+}
+
+@mixin button($color) {
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 0;
+  width: 100%;
+  font-size: 1rem;
+  color: $gray;
+  background-color: $color;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+
+  @include respond-to("medium") {
+    height: 50px;
+  }
+}

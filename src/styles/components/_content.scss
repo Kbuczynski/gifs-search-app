@@ -1,0 +1,39 @@
+.content {
+    padding: 1rem 0;
+    text-align: center;
+    grid-row: 2;
+
+    &__box {
+        grid-template-columns: 1 / 13;
+        padding: 1rem 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 2rem 1rem;
+        width: 100%;
+    
+        @include respond-to("medium") {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include respond-to("small") {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include respond-to("very-small") {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__button {
+        @include button($orange);
+
+        width: 25%;
+        height: 50px;
+        margin-bottom: 1rem;
+
+        @include respond-to("small") {
+            width: 100%;
+        }
+    }
+}

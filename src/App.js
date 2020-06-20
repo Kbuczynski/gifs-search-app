@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Header from "./components/Header";
+import Content from "./components/Content";
+import Scroll from "./components/Scroll";
 
-function App() {
+const App = () => {
+  const [query, setQuery] = useState("search");
+  const [showScroll, setShowScroll] = useState(false);
+
+  const handleScroll = () => {
+    const scrollY = window.scrollY,
+      pageY = window.innerHeight;
+  
+    if (scrollY > pageY) setShowScroll(true);
+    else setShowScroll(false);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <Header searchQuery={setQuery} />
+      <Content query={query} />
+      { showScroll && <Scroll /> }
     </div>
   );
-}
+};
 
 export default App;

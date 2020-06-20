@@ -1,0 +1,22 @@
+.gif {
+  z-index: -1;
+
+  &__img {
+    width: 290px;
+    height: 290px;
+
+    @include respond-to("small") {
+      padding: 0.5rem 0;
+    }
+  
+    @include respond-to("medium") {
+      width: 270px;
+      height: 270px;
+    }
+
+    & > img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

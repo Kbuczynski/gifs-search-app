@@ -1,0 +1,43 @@
+.scroll {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  cursor: pointer;
+  border: 0.1rem solid $dark-blue;
+  background-color: $dark-blue;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include respond-to("medium") {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  &__arrow {
+    color: $gray;
+    border: solid $gray;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 0.5rem;
+    transform: rotate(-135deg);
+    animation: arrow-animation 1.5s infinite ease-in-out alternate;
+
+    @include respond-to("medium") {
+      padding: 0.3rem;
+    }
+  }
+}
+
+@keyframes arrow-animation {
+  from {
+    transform: translateY(0.5rem) rotate(-135deg);
+  }
+  to {
+    transform: translateY(0) rotate(-135deg);
+  }
+}

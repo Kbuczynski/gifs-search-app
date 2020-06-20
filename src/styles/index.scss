@@ -1,0 +1,9 @@
+// base
+@import "./base/normalize";
+
+// utilities
+@import "./utilities/variables", "./utilities/mixins";
+
+// components
+@import "./components/wrapper", "./components/header", "./components/content",
+  "./components/gif", "./components/scroll", "./components/preloader";
