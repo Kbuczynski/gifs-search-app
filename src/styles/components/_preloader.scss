@@ -3,9 +3,9 @@
     position: absolute;
     width: 80px;
     height: 80px;
-    top: 50%;
+    bottom: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
   
     & div {
       box-sizing: border-box;
@@ -17,7 +17,7 @@
       border: 8px solid $white-opacity;
       border-radius: 50%;
       animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-      border-color: $orange transparent transparent transparent;
+      border-color: $dark-blue transparent transparent transparent;
     }
   
     div:nth-child(1) {

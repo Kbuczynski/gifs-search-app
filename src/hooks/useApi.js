@@ -26,6 +26,8 @@ const doFetch = async (
 
 const apiReducer = (state, action) => {
   switch (action.type) {
+    case 'FETCHING':
+      return { data: null, isLoading: true, error: null };
     case "SUCCESS":
       return { data: action.payload, error: null };
     case "ERROR":
@@ -44,6 +46,7 @@ export const useApi = (type, query, limit, offset, raiting, tag) => {
   });
 
   useEffect(() => {
+    dispatch({ type: 'FETCHING' });
     doFetch(type, query, limit, offset, raiting, tag)
       .then((data) => dispatch({ type: "SUCCESS", payload: data.data.data }))
       .catch((error) => dispatch({ type: "ERROR", payload: error }));

@@ -7,7 +7,12 @@ import Preloader from "./Preloader";
 const Content = ({ query }) => {
   const NUMBER_OF_GIFS = 24;
   const [offset, setOffset] = useState(0);
-  const { data } = useApi(fetchTypes.search, query, NUMBER_OF_GIFS, offset);
+  const { data, isLoading } = useApi(
+    fetchTypes.search,
+    query,
+    NUMBER_OF_GIFS,
+    offset
+  );
   const [dataToShow, setDataToShow] = useState([]);
 
   useEffect(() => {
@@ -27,14 +32,15 @@ const Content = ({ query }) => {
   return (
     <section className="content">
       <div className="content__box">
-        {dataToShow == null ? <Preloader /> : dataToShow.length > 0 ? (
+        {dataToShow.length > 0 ? (
           dataToShow.map(({ images, title }, index) => {
             return <Gif key={index} image={images} title={title} />;
           })
         ) : (
-          <Preloader />
+          !isLoading && <span>no data</span>
         )}
       </div>
+      {isLoading && <Preloader />}
       {dataToShow.length > 0 && (
         <button className="content__button" onClick={handleClick}>
           load more

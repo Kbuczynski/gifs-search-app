@@ -1,8 +1,12 @@
 .header {
   grid-row: 1;
   padding-top: 1rem;
-  width: 100%;
   position: relative;
+  min-width: 700px;
+
+  @include respond-to("small") {
+    min-width: 100%;
+  }
 
   &__search {
     display: grid;
@@ -95,7 +99,7 @@
       }
 
       &__category {
-        padding: .5rem 1rem;
+        padding: 0.5rem 1rem;
         font-size: 1.5rem;
         color: $white-opacity;
 
