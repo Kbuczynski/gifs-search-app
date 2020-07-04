@@ -29,9 +29,9 @@ const apiReducer = (state, action) => {
     case 'FETCHING':
       return { data: null, isLoading: true, error: null };
     case "SUCCESS":
-      return { data: action.payload, error: null };
+      return { data: action.payload, isLoading: null, error: null };
     case "ERROR":
-      return { data: null, error: action.payload };
+      return { data: null, isLoading: null, error: action.payload };
     default:
       break;
   }
@@ -42,6 +42,7 @@ const apiReducer = (state, action) => {
 export const useApi = (type, query, limit, offset, raiting, tag) => {
   const [response, dispatch] = useReducer(apiReducer, {
     data: null,
+    isLoading: null,
     error: null
   });
 

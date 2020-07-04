@@ -31,19 +31,32 @@ const Search = ({ searchQuery, setQuery, query, setShowMenu, showMenu }) => {
         value={query}
       />
 
-      {data == null ? null : (
-        <ul className="header__search--autocomplete">
-          {data.map(({ name }, index) => (
-            <li
-              key={index}
-              className="header__search--autocomplete--item"
-              onClick={handleAutoComplete}
-            >
-              {name}
-            </li>
-          ))}
-        </ul>
-      )}
+      {data !== null &&
+        (Array.isArray(data) ? (
+          <ul className="header__search--autocomplete">
+            {data.map(({ name }, index) => (
+              <li
+                key={index}
+                className="header__search--autocomplete--item"
+                onClick={handleAutoComplete}
+              >
+                {name}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <ul className="header__search--autocomplete">
+            {Object.values(data).map(({ name }, index) => (
+              <li
+                key={index}
+                className="header__search--autocomplete--item"
+                onClick={handleAutoComplete}
+              >
+                {name}
+              </li>
+            ))}
+          </ul>
+        ))}
 
       <button
         type="submit"
